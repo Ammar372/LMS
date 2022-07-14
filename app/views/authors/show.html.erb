@@ -1,0 +1,33 @@
+<div class="Show index">
+
+
+<%=link_to("Back To Book ",authors_path,:class =>"action new")%>
+
+<h1>Show Auhtor</h1>
+<table class="lisitng" summary="Show books">
+
+<tr class="header">
+<tr>
+<th>Author ID</th>
+<td><%=@author.id%>
+</tr></tr>
+
+<tr>
+<th>Name</th>
+<td><%=@author.name%>
+</tr></tr>
+
+
+<tr>
+<th>Created</th>
+<td><%=@author.created_at%>
+</tr></tr>
+
+<tr>
+<th>Updated</th>
+<td><%=@author.updated_at%>
+</tr></tr>
+
+
+</table>
+</div>

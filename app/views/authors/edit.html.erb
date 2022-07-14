@@ -1,0 +1,13 @@
+<div class="Author new">
+<%=link_to("Back To author",authors_path,:class=>"back-link")%>
+<h1>Edit Author Name</h1>
+<%=form_for(@author,:method=>"patch") do |f|%>
+<%=render(:partial=>'form',:locals=>{:f=>f} )%>
+<div class="forms-button">
+<%=f.submit("Update Author")%>
+</div>
+<%end%>
+</div>
+
+
+

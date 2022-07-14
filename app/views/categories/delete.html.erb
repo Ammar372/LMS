@@ -1,0 +1,22 @@
+<div class="delete index">
+<%=link_to("Back To Category ",categories_path,:class =>"action new")%>
+<h1>Delete</h1>
+<%=form_for(@category,:method => "delete") do |f|%>
+<table class="delete category " >
+
+<p>Are you sure you want to delete this subject?</p>
+<p class="reference-name"><%=@category.name%>
+
+
+
+
+</table>
+
+<div class="forms-button">
+<%=f.submit("Delete Content")%>
+</div>
+
+<%end%>
+
+
+</div>

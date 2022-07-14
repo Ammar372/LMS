@@ -1,0 +1,26 @@
+<div class="Authors index">
+<h1>Add new Author</h1>
+<%=link_to("Adding new author ","authors/new",:class =>"action new")%>
+<table class="Authors"  summary="Authors list">
+
+<tr class="header">
+<th>#</th>
+<th>Name</th>
+</tr>
+
+<%@author.each do |b| %>
+<tr>
+<td><%=b.id%></td>
+<td><%=b.name%></td>
+
+<td class="action">
+<%=link_to("Show",author_path(b.id), :class=>"action show")%>
+ <%=link_to("Edit",edit_author_path(b.id), :class=>"action edit")%>
+  <%=link_to("Delete",delete_author_path(b.id), :class=>"action delete")%>
+</td>
+</tr>
+<%end%>
+</table>
+</div>
+
+

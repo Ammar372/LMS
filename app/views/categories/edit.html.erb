@@ -1,0 +1,15 @@
+<div class="Category new">
+<%=link_to("Back To Category",categories_path,:class=>"back-link")%>
+<h1>Edit Category</h1>
+<%=form_for(@category,:method=>"patch") do |f|%>
+<%=render(:partial=>'form',:locals=>{:f=>f} )%>
+
+
+<div class="forms-button">
+<%=f.submit("Update Category")%>
+</div>
+<%end%>
+</div>
+
+
+

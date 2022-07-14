@@ -1,0 +1,13 @@
+<div class="author new">
+<%=link_to("Back To Author",authors_path,:class=>"back-link")%>
+<h1>Created Author</h1>
+<%=form_for(@author,:method=>"post") do |f|%>
+<%=render(:partial=>'form',:locals=>{:f=>f} )%>
+
+<div class="forms-button">
+<%=f.submit("Create Auhtor")%>
+</div>
+<%end%>
+</div>
+
+

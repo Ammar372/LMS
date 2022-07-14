@@ -1,0 +1,22 @@
+<div class="delete index">
+<%=link_to("Back To Book ",books_path,:class =>"action new")%>
+<h1>Delete</h1>
+<%=form_for(@book,:method => "delete") do |f|%>
+<table class="delete book " >
+
+<p>Are you sure you want to delete this subject?</p>
+<p class="reference-name"><%=@book.name%>
+
+
+
+
+</table>
+
+<div class="forms-button">
+<%=f.submit("Delete Content")%>
+</div>
+
+<%end%>
+
+
+</div>
