@@ -8,20 +8,24 @@ before_action :set_book ,only: [:show,:edit, :update,:delete, :destroy]
   end
 
   def show
-    # @book =Book.find(params[:id])
+    @book =Book.find(params[:id])
 
   end
 
   def new
-    @book = Book.new
+   
+   @author = Author.find(params[:id])
 
+
+    @book = @author.books.build
   end
 
 
   def create
-    @book = Book.new(books_params)
+    @author = Author.find(params[:id])
+    @book = @author.books.build(params[:book])
     if @book.save
-      redirect_to(books_path)
+      redirect_to new_book_path(:id => @author.id)
     elsif
     render("error1") 
     end
@@ -67,7 +71,7 @@ before_action :set_book ,only: [:show,:edit, :update,:delete, :destroy]
   private
 
   def set_book
-    @author = Author.find(params[:author])
+    # @author = Author.find(params[:author])
 
     @book =Book.find(params[:id])
 

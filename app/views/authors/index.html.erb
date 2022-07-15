@@ -11,12 +11,13 @@
 <%@author.each do |b| %>
 <tr>
 <td><%=b.id%></td>
-<td><%=b.name%></td>
+<td><%=link_to(b.name,:controller => :books, :id => b.id)%></td>
 
 <td class="action">
 <%=link_to("Show",author_path(b.id), :class=>"action show")%>
- <%=link_to("Edit",edit_author_path(b.id), :class=>"action edit")%>
-  <%=link_to("Delete",delete_author_path(b.id), :class=>"action delete")%>
+
+<%=link_to("Edit",edit_author_path(b.id), :class=>"action edit")%>
+<%=link_to("Delete",delete_author_path(b.id), :class=>"action delete")%>
 </td>
 </tr>
 <%end%>
