@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+ 
   # get 'authors/index'
   # get 'authors/show'
   # get 'authors/new'
@@ -14,7 +15,20 @@ Rails.application.routes.draw do
   # get 'categories/new'
   # get 'categories/edit'
   # get 'categories/delete'
- 
+  namespace :api do
+    namespace :v1 do
+  resources :books
+  resources :authors
+  resources :categories
+
+
+    end
+  end
+  root to:"home#index" 
+
+
+
+
  resources :categories do
 
   member do
