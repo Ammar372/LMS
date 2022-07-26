@@ -10,11 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_22_153912) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_26_160827) do
   create_table "authors", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", limit: 25
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "book_through_authors", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "book_id"
+    t.bigint "auhtor_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["auhtor_id"], name: "index_book_through_authors_on_auhtor_id"
+    t.index ["book_id"], name: "index_book_through_authors_on_book_id"
   end
 
   create_table "book_through_categories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -28,10 +37,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_22_153912) do
 
   create_table "books", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", limit: 25
+    t.integer "page"
     t.string "email", limit: 25
     t.string "publishDate", limit: 25
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "pages"
     t.index ["email"], name: "index_books_on_email"
     t.index ["publishDate"], name: "index_books_on_publishDate"
   end
