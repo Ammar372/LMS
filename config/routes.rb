@@ -15,17 +15,27 @@ Rails.application.routes.draw do
   # get 'categories/new'
   # get 'categories/edit'
   # get 'categories/delete'
-  namespace :api do
+
+  
+  namespace :api,defaults:{format: :json} do
     namespace :v1 do
-  resources :books
+      resources :books
   resources :authors
   resources :categories
+  
+  
+end
+end
+
+# root to:"home#index"
+# get "home/books"
 
 
-    end
-  end
-  root to:"home#index" 
+# get "home/authors"
+# get "home/categories"
 
+
+ 
 
 
 

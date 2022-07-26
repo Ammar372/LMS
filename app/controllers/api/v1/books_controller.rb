@@ -3,6 +3,7 @@ module Api
 
   class BooksController < ApplicationController
     # before_action :authorize_access_reqques!
+    skip_before_action :verify_authenticity_token
     before_action :set_artist, only: %i[ show update destroy ]
 
     # GET /artists
@@ -22,7 +23,8 @@ module Api
       @books = Book.new(book_params)
 
       if @books.save
-        render json: @books, status: :created, location: @books
+        
+        render json: @books , status: :created, location: @books
       else
         render json: @books.errors, status: :unprocessable_entity
       end

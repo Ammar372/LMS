@@ -3,6 +3,8 @@ module Api
 
   class AuthorsController < ApplicationController
     # before_action :authorize_access_reqques!
+    skip_before_action :verify_authenticity_token
+
     before_action :set_artist, only: %i[ show update destroy ]
 
     # GET /artists
@@ -51,7 +53,10 @@ module Api
       # Only allow a list of trusted parameters through.
       def author_params
         
-    params.require(:book).permit(:name)
+    
+    
+        params.require(:author).permit(:name)
+
 
       end
   end

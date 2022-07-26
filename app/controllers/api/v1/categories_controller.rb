@@ -3,6 +3,8 @@ module Api
 
   class  CategoriesController < ApplicationController
     # before_action :authorize_access_reqques!
+    skip_before_action :verify_authenticity_token
+
     before_action :set_artist, only: %i[ show update destroy ]
 
     # GET /artists
@@ -21,7 +23,7 @@ module Api
     def create
       @categories = Category.new(categories_params)
 
-      if @books.save
+      if @categories.save
         render json: @categories, status: :created, location: @categories
       else
         render json: @categories.errors, status: :unprocessable_entity
@@ -30,7 +32,7 @@ module Api
 
     # PATCH/PUT /artists/1
     def update
-      if @books.update(categories_params)
+      if @categories.update(categories_params)
         render json: @categories
       else
         render json: @categories.errors, status: :unprocessable_entity
@@ -51,7 +53,7 @@ module Api
       # Only allow a list of trusted parameters through.
       def categories_params
         
-    params.require(:book).permit(:name)
+    params.require(:category).permit(:name)
 
       end
   end
